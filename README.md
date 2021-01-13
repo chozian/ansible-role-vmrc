@@ -25,5 +25,5 @@ BSD 3-Clause
 Author Information
 ------------------
 
-Chris Hozian
+Chris Hozian  
 Madison, AL, USA
