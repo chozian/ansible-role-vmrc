@@ -1,0 +1,19 @@
+galaxy_info:
+  role_name: vmrc
+  author: Chris Hozian
+  description: VMware Remote Console for Linux
+  license: BSD-3-Clause
+  min_ansible_version: 2.10
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+    - vmware
+    - remote
+    - console
+    - desktop
+    - server
+    - system
+    - administration
+dependencies: []
