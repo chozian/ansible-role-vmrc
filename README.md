@@ -1,7 +1,7 @@
 vmrc
 =========
 
-This Ansible role is for installing the VMware Remote Console application in Linux.
+This Ansible role is for installing the VMware Remote Console application on Linux.
 
 Role Variables
 --------------
