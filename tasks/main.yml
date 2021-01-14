@@ -4,7 +4,7 @@
 - name: Check if VMRC is already installed
   stat:
     path: /usr/bin/vmrc
-  register: vmrc_installed
+  register: vmrc_already_installed
 
 - name: Copy over VMRC bundle installer
   ansible.builtin.copy:
@@ -13,15 +13,16 @@
     owner: root
     group: root
     mode: '0755'
-  when: vmrc_installed.stat.exists == 0
+  when: vmrc_already_installed.stat.exists == 0
 
 - name: Install VMRC bundle
   ansible.builtin.shell: env TERM=dumb VMWARE_EULAS_AGREED=yes ./VMware-Remote-Console-12.0.0-17287072.x86_64 --console --required
   args:
     chdir: /tmp/
-    creates: /usr/bin/vmrc
+  when: vmrc_already_installed.stat.exists == 0
 
 - name: Remove VMRC bundle installer
   ansible.builtin.file:
     path: /tmp/VMware-Remote-Console-12.0.0-17287072.x86_64
     state: absent
+  when: vmrc_already_installed.stat.exists == 0
